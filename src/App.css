@@ -11,10 +11,12 @@ a:hover {
   opacity: 0.4;
 }
 section {
-  padding-top: 250px;
+  padding-top: 34vw;
+  background-color: rgb(21, 21, 21);
 }
 .relative {
   position: relative;
+  background-color: rgb(21, 21, 21);
 }
 header {
   position: fixed;
@@ -26,11 +28,11 @@ header > img {
 }
 
 .navigation {
-  padding: 5px 5% 5px 5%;
+  padding: 1vw 5% 1vw 5%;
   display: flex;
   justify-content: space-between;
   background-color: #4d0b1594;
-  margin-bottom: 20px;
+  margin-bottom: 1vw;
   position: sticky;
   top: 0;
 }
@@ -53,27 +55,40 @@ header > img {
 
 .pageCount {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  padding-bottom: 20px;
+  padding-bottom: 2vw;
+  padding-left: 5%;
+  padding-right: 5%;
   position: fixed;
+  top: 31vw;
+  z-index: 2;
   background-color: rgb(21, 21, 21);
   width: 100vw;
 }
+.pageCount > div {
+  flex: 1;
+  text-align: center;
+}
 .containerToSwip {
   display: flex;
-  padding-top: 50px;
+  padding-top: 5vw;
   padding-left: 5%;
   padding-right: 5%;
+  width: 100vw;
+  justify-content: center;
 }
 
 .swip {
-  width: 50px;
+  flex: 1;
   position: fixed;
   top: 70vh;
+  text-align: center;
 }
 
 .mainContainer {
+  padding-left: 10px;
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

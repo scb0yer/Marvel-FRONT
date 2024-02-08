@@ -31,7 +31,7 @@ export default function CharacterPage() {
   return isLoading ? (
     <span>En cours de chargement...</span>
   ) : (
-    <div className="containerCharacter">
+    <section className="containerCharacter">
       <div>
         <img src={picture_url} alt={data.name} />
       </div>
@@ -51,6 +51,6 @@ export default function CharacterPage() {
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
