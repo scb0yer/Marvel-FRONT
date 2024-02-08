@@ -1,0 +1,119 @@
+body {
+  background-color: rgb(21, 21, 21);
+  color: white;
+}
+a {
+  color: white;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+a:hover {
+  opacity: 0.4;
+}
+section {
+  padding-top: 250px;
+}
+.relative {
+  position: relative;
+}
+header {
+  position: fixed;
+  background-color: rgb(21, 21, 21);
+  z-index: 1;
+}
+header > img {
+  width: 100vw;
+}
+
+.navigation {
+  padding: 5px 5% 5px 5%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #4d0b1594;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+}
+
+.navigation > div:last-child {
+  display: flex;
+  gap: 30px;
+}
+
+.navigation .search {
+  width: 40vw;
+  height: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}
+
+/* ----------- Index Pages -----------*/
+
+.pageCount {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-bottom: 20px;
+  position: fixed;
+  background-color: rgb(21, 21, 21);
+  width: 100vw;
+}
+.containerToSwip {
+  display: flex;
+  padding-top: 50px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.swip {
+  width: 50px;
+  position: fixed;
+  top: 70vh;
+}
+
+.mainContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+.mainContainer div {
+  width: 120px;
+  padding: 10px;
+}
+.element {
+  background-color: #4d0b1594;
+  border: black 1px solid;
+  border-radius: 5px;
+  height: 280px;
+}
+.element > div:first-child {
+  margin-top: 5px;
+  height: 40px;
+  overflow-y: hidden;
+  background-color: rgba(21, 21, 21, 0.615);
+}
+
+.element > div:last-child {
+  height: 50px;
+  overflow-y: hidden;
+}
+
+/* ----------- CharacterPage -----------*/
+
+.containerCharacter {
+  padding-left: 10vw;
+  padding-right: 10vw;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 5px;
+}
+
+.containerComicsXS {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
