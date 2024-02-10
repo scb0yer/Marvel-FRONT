@@ -64,8 +64,32 @@ export default function CharactersPage(props) {
           )}
         </div>
         <div>
+          {skip > 99 && (
+            <FontAwesomeIcon
+              icon="chevron-left"
+              size="2xl"
+              style={{ color: "#5f0c18" }}
+              onClick={() => {
+                setSkip(skip - 100);
+              }}
+            />
+          )}
+        </div>
+        <div>
           Page {skip === 0 ? "1" : skip / 100 + 1} sur{" "}
           {Math.ceil(data.count / 100)}
+        </div>
+        <div>
+          {data.count > skip + 100 && (
+            <FontAwesomeIcon
+              icon="chevron-right"
+              size="2xl"
+              style={{ color: "#5f0c18" }}
+              onClick={() => {
+                setSkip(skip + 100);
+              }}
+            />
+          )}
         </div>
         <div>
           {data.count > skip + 100 && (

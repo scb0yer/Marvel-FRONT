@@ -13,6 +13,7 @@ import CharacterPage from "./pages/CharacterPage";
 import ComicsPage from "./pages/ComicsPage";
 import ComicPage from "./pages/ComicPage";
 import Login from "./components/Login";
+import SignUp from "./components/Signup";
 import FavouritesPage from "./pages/FavouritesPage";
 
 import "./App.css";
@@ -46,7 +47,12 @@ function App() {
           path="/comics"
           element={<ComicsPage search={search} setSearch={setSearch} />}
         />
-        <Route path="/comic/:id" element={<ComicPage token={token} />} />
+        <Route
+          path="/comic/:id"
+          element={
+            <ComicPage token={token} setLoginVisible={setLoginVisible} />
+          }
+        />
         <Route
           path="/user"
           element={
@@ -60,6 +66,13 @@ function App() {
       </Routes>
       {loginVisible && (
         <Login
+          setLoginVisible={setLoginVisible}
+          setSignUpVisible={setSignUpVisible}
+          setToken={setToken}
+        />
+      )}
+      {signUpVisible && (
+        <SignUp
           setLoginVisible={setLoginVisible}
           setSignUpVisible={setSignUpVisible}
           setToken={setToken}

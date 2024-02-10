@@ -50,29 +50,33 @@ export default function FavouritesPage(props) {
   return user ? (
     <section className="profil">
       <div>
-        <div>
+        <div className="profilInfos">
           <div>Username :</div>
           <div>{user.username}</div>
         </div>
-        <div>
+        <div className="profilInfos">
           <div>Email :</div>
           <div>{user.email}</div>
         </div>
         <div>
-          <div>Bandes dessinées préférées :</div>
-          <div>
+          <h2>Bandes dessinées préférées :</h2>
+          <div className="carroussel">
             {user.favourites.comics.length > 0 &&
               user.favourites.comics.map((comic, index) => {
                 return (
-                  <div key={index}>
-                    <div>{comic.title}</div>
-                    <div>
+                  <div>
+                    <Link
+                      to={`/comic/${comic.id}`}
+                      key={index}
+                      className="element"
+                    >
+                      <div>{comic.title}</div>
+
                       <img src={comic.picture} alt={comic.title} />
-                    </div>
+                    </Link>
                     <div>
                       <button
                         onClick={() => {
-                          console.log(comic._id);
                           deleteFavourite("Comic", comic.id);
                         }}
                       >
@@ -85,20 +89,24 @@ export default function FavouritesPage(props) {
           </div>
         </div>
         <div>
-          <div>Personnages préférés :</div>
-          <div>
+          <h2>Personnages préférés :</h2>
+          <div className="carroussel">
             {user.favourites.characters.length > 0 &&
               user.favourites.characters.map((character, index) => {
                 return (
-                  <div key={index}>
-                    <div>{character.name}</div>
-                    <div>
+                  <div>
+                    <Link
+                      to={`/character/${character.id}`}
+                      key={index}
+                      className="element"
+                    >
+                      <div>{character.name}</div>
+
                       <img src={character.picture} alt={character.name} />
-                    </div>
+                    </Link>
                     <div>
                       <button
                         onClick={() => {
-                          console.log(character._id);
                           deleteFavourite("Character", character.id);
                         }}
                       >

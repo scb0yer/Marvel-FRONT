@@ -30,7 +30,7 @@ export default function ComicPage(props) {
   const addToFavourite = async () => {
     try {
       const response = await axios.post(
-        `https://site--marvel--dzk9mdcz57cb.code.run/user/addFavouriteComic/${id}`,
+        `https://site--marvel--dzk9mdcz57cb.code.run/user/addFavouriteComics/${id}`,
         {
           title: data.title,
           picture: picture_url,

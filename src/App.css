@@ -10,8 +10,11 @@ a {
 a:hover {
   opacity: 0.4;
 }
+h2 {
+  padding-top: 20px;
+}
 section {
-  padding-top: 34vw;
+  padding-top: 29vw;
   background-color: rgb(21, 21, 21);
 }
 .relative {
@@ -57,11 +60,11 @@ header > img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 2vw;
+  padding-bottom: 1vw;
   padding-left: 5%;
   padding-right: 5%;
   position: fixed;
-  top: 31vw;
+  top: 27vw;
   z-index: 2;
   background-color: rgb(21, 21, 21);
   width: 100vw;
@@ -142,7 +145,7 @@ header > img {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 155px;
+  top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 3;
@@ -176,6 +179,7 @@ input {
 
 /* ---------------- PROFIL PAGE ----------------*/
 .profil {
+  padding-top: 34vw;
   width: 70vw;
   margin: auto;
 }
@@ -186,12 +190,47 @@ input {
   justify-content: space-evenly;
   padding: 10px;
   border: #4d0b1594 1px solid;
-  height: 30vw;
 }
-.profil > div > div {
+.profil .profilInfos {
   border-bottom: #4d0b15dc 1px dashed;
   display: flex;
   justify-content: space-between;
+}
+
+.profil .carroussel {
+  display: flex;
+  justify-content: flex-start;
+  width: 65vw;
+  overflow-x: scroll;
+}
+
+.profil .carroussel button {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin: 2px;
+  transition-duration: 0.5s;
+}
+.profil .carroussel button:hover {
+  background-color: #4d0b1594;
+}
+
+.profil .element > div:first-child {
+  height: 30px;
+}
+
+.profil .element {
+  width: 120px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.profil img {
+  height: 120px;
 }
 
 /* ---------------- OTHER PAGES ----------------*/
