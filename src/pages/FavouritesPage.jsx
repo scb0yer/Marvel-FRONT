@@ -28,6 +28,24 @@ export default function FavouritesPage(props) {
   }, [props.token]);
   console.log(user);
 
+  const deleteFavourite = async (element, id) => {
+    try {
+      const { data } = await axios.post(
+        `https://site--marvel--dzk9mdcz57cb.code.run/user/removeFavourite${element}/${id}`,
+        {},
+        {
+          headers: {
+            authorization: `Bearer ${props.token}`,
+          },
+        }
+      );
+      setUser(data);
+      navigate("/");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   // displays the infos of the user only if he logged.
   return user ? (
     <section className="profil">
@@ -41,30 +59,52 @@ export default function FavouritesPage(props) {
           <div>{user.email}</div>
         </div>
         <div>
+          <div>Bandes dessinées préférées :</div>
+          <div>
+            {user.favourites.comics.length > 0 &&
+              user.favourites.comics.map((comic, index) => {
+                return (
+                  <div key={index}>
+                    <div>{comic.title}</div>
+                    <div>
+                      <img src={comic.picture} alt={comic.title} />
+                    </div>
+                    <div>
+                      <button
+                        onClick={() => {
+                          console.log(comic._id);
+                          deleteFavourite("Comic", comic.id);
+                        }}
+                      >
+                        Supprimer des favoris
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+        <div>
           <div>Personnages préférés :</div>
           <div>
             {user.favourites.characters.length > 0 &&
               user.favourites.characters.map((character, index) => {
-                const [picture_url, setPicture_url] = useEffect();
-                useEffect(() => {
-                  const fetchData = async () => {
-                    try {
-                      const { data } = await axios.get(
-                        `https://site--marvel--dzk9mdcz57cb.code.run/character/${character}`
-                      );
-                      setPicture_url(
-                        `${data.thumbnail.path}/portrait_uncanny.${data.thumbnail.extension}`
-                      );
-                      setIsLoading(false);
-                    } catch (error) {
-                      console.log(error.message);
-                    }
-                  };
-                  fetchData();
-                }, []);
                 return (
                   <div key={index}>
-                    <img src={picture_url} alt="personnage" />
+                    <div>{character.name}</div>
+                    <div>
+                      <img src={character.picture} alt={character.name} />
+                    </div>
+                    <div>
+                      <button
+                        onClick={() => {
+                          console.log(character._id);
+                          deleteFavourite("Character", character.id);
+                        }}
+                      >
+                        Supprimer des favoris
+                      </button>
+                    </div>
                   </div>
                 );
               })}

@@ -30,9 +30,12 @@ export default function CharacterPage(props) {
 
   const addToFavourite = async () => {
     try {
-      console.log(props.token);
       const response = await axios.post(
         `https://site--marvel--dzk9mdcz57cb.code.run/user/addFavouriteCharacter/${id}`,
+        {
+          name: data.name,
+          picture: picture_url,
+        },
         {
           headers: {
             authorization: `Bearer ${props.token}`,
