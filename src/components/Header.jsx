@@ -6,6 +6,11 @@ export default function Header(props) {
   const navigate = useNavigate();
   return (
     <header>
+      {props.loginVisible
+        ? document.body.classList.add("scroll-lock")
+        : props.signUpVisible
+        ? document.body.classList.add("scroll-lock")
+        : document.body.classList.remove("scroll-lock")}
       <img
         src={Logo}
         alt="logo"
@@ -42,7 +47,14 @@ export default function Header(props) {
           >
             Bandes Dessinées
           </Link>
-          <div>Favoris</div>
+          <Link
+            to="/user"
+            onClick={() => {
+              props.setSearch("");
+            }}
+          >
+            Favoris
+          </Link>
         </div>
       </div>
     </header>

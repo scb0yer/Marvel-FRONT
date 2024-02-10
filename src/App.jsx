@@ -12,27 +12,59 @@ import CharactersPage from "./pages/CharactersPage";
 import CharacterPage from "./pages/CharacterPage";
 import ComicsPage from "./pages/ComicsPage";
 import ComicPage from "./pages/ComicPage";
+import Login from "./components/Login";
+import FavouritesPage from "./pages/FavouritesPage";
 
 import "./App.css";
 
 function App() {
   const [search, setSearch] = useState("");
+  const [token, setToken] = useState("");
+  const [signUpVisible, setSignUpVisible] = useState(false);
+  const [loginVisible, setLoginVisible] = useState(false);
 
   return (
-    <Router>
-      <Header search={search} setSearch={setSearch} />
+    <Router className="relative">
+      <Header
+        search={search}
+        setSearch={setSearch}
+        signUpVisible={signUpVisible}
+        loginVisible={loginVisible}
+      />
       <Routes>
         <Route
           path="/"
           element={<CharactersPage search={search} setSearch={setSearch} />}
         />
-        <Route path="/character/:id" element={<CharacterPage />} />
+        <Route
+          path="/character/:id"
+          element={
+            <CharacterPage token={token} setLoginVisible={setLoginVisible} />
+          }
+        />
         <Route
           path="/comics"
           element={<ComicsPage search={search} setSearch={setSearch} />}
         />
-        <Route path="/comic/:id" element={<ComicPage />} />
+        <Route path="/comic/:id" element={<ComicPage token={token} />} />
+        <Route
+          path="/user"
+          element={
+            <FavouritesPage
+              token={token}
+              setLoginVisible={setLoginVisible}
+              setSignUpVisible={setSignUpVisible}
+            />
+          }
+        />
       </Routes>
+      {loginVisible && (
+        <Login
+          setLoginVisible={setLoginVisible}
+          setSignUpVisible={setSignUpVisible}
+          setToken={setToken}
+        />
+      )}
     </Router>
   );
 }

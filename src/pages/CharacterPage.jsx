@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import axios from "axios";
 
-export default function CharacterPage() {
+export default function CharacterPage(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
   const [picture_url, setPicture_url] = useState();
@@ -28,12 +28,40 @@ export default function CharacterPage() {
     fetchData();
   }, []);
 
+  const addToFavourite = async () => {
+    try {
+      console.log(props.token);
+      const response = await axios.post(
+        `https://site--marvel--dzk9mdcz57cb.code.run/user/addFavouriteCharacter/${id}`,
+        {
+          headers: {
+            authorization: `Bearer ${props.token}`,
+          },
+        }
+      );
+      alert("Le personnage a bien été ajouté aux favoris");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return isLoading ? (
     <span>En cours de chargement...</span>
   ) : (
     <section className="containerCharacter">
       <div>
         <img src={picture_url} alt={data.name} />
+        <button
+          onClick={() => {
+            if (props.token) {
+              addToFavourite(id);
+            } else {
+              props.setLoginVisible(true);
+            }
+          }}
+        >
+          Ajouter aux favoris
+        </button>
       </div>
       <div>
         <div>

@@ -30,7 +30,7 @@ export default function ComicPage() {
   return isLoading ? (
     <span>En cours de chargement...</span>
   ) : (
-    <div className="containerCharacter">
+    <section className="containerCharacter">
       <div>
         <img src={picture_url} alt={data.title} />
       </div>
@@ -40,6 +40,6 @@ export default function ComicPage() {
           <div>{data.description}</div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
