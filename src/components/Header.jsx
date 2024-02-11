@@ -1,9 +1,25 @@
 import { useNavigate, Link } from "react-router-dom";
+import React from "react";
+import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
 import Logo from "../assets/logo.png";
 
 export default function Header(props) {
   const navigate = useNavigate();
+
+  const formatResult = (item) => {
+    return (
+      <>
+        <span style={{ display: "block", textAlign: "left" }}>
+          id: {item.id}
+        </span>
+        <span style={{ display: "block", textAlign: "left" }}>
+          name: {item.name}
+        </span>
+      </>
+    );
+  };
+
   return (
     <header>
       {props.loginVisible
@@ -19,44 +35,6 @@ export default function Header(props) {
           navigate("/");
         }}
       />
-      <div className="navigation">
-        <div>
-          <input
-            type="search"
-            className="search"
-            value={props.search}
-            onChange={(event) => {
-              props.setSearch(event.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <Link
-            to="/"
-            onClick={() => {
-              props.setSearch("");
-            }}
-          >
-            Personnages
-          </Link>
-          <Link
-            to="/comics"
-            onClick={() => {
-              props.setSearch("");
-            }}
-          >
-            Bandes Dessinées
-          </Link>
-          <Link
-            to="/user"
-            onClick={() => {
-              props.setSearch("");
-            }}
-          >
-            Favoris
-          </Link>
-        </div>
-      </div>
     </header>
   );
 }

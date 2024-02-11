@@ -4,8 +4,10 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faChevronRight,
   faChevronLeft,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faChevronRight, faChevronLeft);
+
+library.add(faChevronRight, faChevronLeft, faBars);
 
 import Header from "./components/Header";
 import CharactersPage from "./pages/CharactersPage";
@@ -15,6 +17,7 @@ import ComicPage from "./pages/ComicPage";
 import Login from "./components/Login";
 import SignUp from "./components/Signup";
 import FavouritesPage from "./pages/FavouritesPage";
+import Menu from "./components/Menu";
 
 import "./App.css";
 
@@ -23,6 +26,7 @@ function App() {
   const [token, setToken] = useState("");
   const [signUpVisible, setSignUpVisible] = useState(false);
   const [loginVisible, setLoginVisible] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
 
   return (
     <Router className="relative">
@@ -35,7 +39,14 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<CharactersPage search={search} setSearch={setSearch} />}
+          element={
+            <CharactersPage
+              search={search}
+              setSearch={setSearch}
+              setMenuVisible={setMenuVisible}
+              menuVisible={menuVisible}
+            />
+          }
         />
         <Route
           path="/character/:id"
@@ -45,7 +56,7 @@ function App() {
         />
         <Route
           path="/comics"
-          element={<ComicsPage search={search} setSearch={setSearch} />}
+          element={<ComicsPage setMenuVisible={setMenuVisible} />}
         />
         <Route
           path="/comic/:id"
@@ -77,6 +88,9 @@ function App() {
           setSignUpVisible={setSignUpVisible}
           setToken={setToken}
         />
+      )}
+      {menuVisible && (
+        <Menu setMenuVisible={setMenuVisible} menuVisible={menuVisible} />
       )}
     </Router>
   );

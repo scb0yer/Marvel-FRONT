@@ -1,6 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Marvel&display=swap");
+
 body {
   background-color: rgb(21, 21, 21);
   color: white;
+  font-family: "Marvel", sans-serif;
 }
 a {
   color: white;
@@ -29,15 +32,21 @@ header {
 header > img {
   width: 100vw;
 }
+.small {
+  font-size: 10px;
+}
 
 .navigation {
   padding: 1vw 5% 1vw 5%;
+  height: 5vw;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: #4d0b1594;
+  background-color: #4d0b15;
   margin-bottom: 1vw;
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 22vw;
+  z-index: 4;
 }
 
 .navigation > div:last-child {
@@ -60,6 +69,7 @@ header > img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 5px;
   padding-bottom: 1vw;
   padding-left: 5%;
   padding-right: 5%;
@@ -233,6 +243,32 @@ input {
   height: 120px;
 }
 
+/* ---------------- MENU COMPONENT (MODAL)  ----------------*/
+.menu {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.menu > div {
+  height: 240px;
+  width: 25vw;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  position: absolute;
+  top: 23vw;
+  left: 0;
+  background-color: rgb(21, 21, 21);
+  z-index: 3;
+  border-bottom-right-radius: 10px;
+}
+
 /* ---------------- OTHER PAGES ----------------*/
 .notLogged {
   padding: 34vw 10% 20px 10%;
@@ -244,4 +280,30 @@ input {
 .notLogged > div:last-child {
   display: flex;
   gap: 30px;
+}
+
+/* ---------------- MEDIA QUERIES ----------------*/
+@media (min-width: 600px) {
+  .invisibleLarge {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .navigation > div:last-child {
+    display: none;
+  }
+  .element img {
+    width: 50px;
+  }
+  .element {
+    height: 150px;
+    width: 60px;
+  }
+  .element > div:last-child {
+    display: none;
+  }
+  .pageCount {
+    padding-top: 20px;
+  }
 }
