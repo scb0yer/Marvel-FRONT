@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+// HomeMade Burger Menu (because it's more licking good than in it's competitors...)
 export default function Menu(props) {
   return (
     <div

@@ -104,8 +104,9 @@ const SignUp = ({ setSignUpVisible, setLoginVisible }) => {
         </div>
         <p>
           En m'inscrivant, je confirme avoir lu et accepté les Termes &
-          Conditions et Politiques de Confidentialité de Vinted. Je confirme
-          avoir au moins 18 ans.
+          Conditions et Politiques de Confidentialité de Marvel. (Comme elles ne
+          sont pas encore rédigées, j'admets être soit un mytho, soit ne jamais
+          lire les petites lignes en bas des contrats. Et c'est mal !)
         </p>
         <button
           onClick={(event) => {

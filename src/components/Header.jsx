@@ -1,25 +1,12 @@
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React from "react";
-import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
 import Logo from "../assets/logo.png";
 
 export default function Header(props) {
   const navigate = useNavigate();
 
-  const formatResult = (item) => {
-    return (
-      <>
-        <span style={{ display: "block", textAlign: "left" }}>
-          id: {item.id}
-        </span>
-        <span style={{ display: "block", textAlign: "left" }}>
-          name: {item.name}
-        </span>
-      </>
-    );
-  };
-
+  // returns only the logo. First there where also the navigation menu, but as I used autocomplete research, the items in the autocomplete research had to result from the request (of characters or comics)
   return (
     <header>
       {props.loginVisible

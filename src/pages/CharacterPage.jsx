@@ -6,10 +6,13 @@ import axios from "axios";
 
 export default function CharacterPage(props) {
   const [isLoading, setIsLoading] = useState(true);
+  // data collected by the request
   const [data, setData] = useState();
+  // picture saved with concatenation of path, extension and option
   const [picture_url, setPicture_url] = useState();
   const { id } = useParams();
 
+  // request to find the character data by Id, launched by loadind the page
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,6 +31,7 @@ export default function CharacterPage(props) {
     fetchData();
   }, []);
 
+  // request to add the character in favourites (on Mongo database), launched by clicking on button
   const addToFavourite = async () => {
     try {
       const response = await axios.post(
@@ -68,7 +72,9 @@ export default function CharacterPage(props) {
       </div>
       <div>
         <div>
-          <div>{data.name}</div>
+          <div>
+            <h2>{data.name}</h2>
+          </div>
           <div>{data.description}</div>
         </div>
         <div className="containerComicsXS">

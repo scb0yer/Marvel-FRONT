@@ -14,10 +14,15 @@ a:hover {
   opacity: 0.4;
 }
 h2 {
-  padding-top: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: x-large;
+  background-color: #4d0b1594;
+  text-align: center;
+  border-radius: 10px;
 }
 section {
-  padding-top: 29vw;
+  padding-top: 35vw;
   background-color: rgb(21, 21, 21);
 }
 .relative {
@@ -97,11 +102,13 @@ header > img {
   position: fixed;
   top: 70vh;
   text-align: center;
+  background-color: white;
+  width: 25px;
+  border-radius: 50%;
 }
 
 .mainContainer {
-  padding-left: 10px;
-  flex: 1;
+  width: 85vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -129,7 +136,7 @@ header > img {
   overflow-y: hidden;
 }
 
-/* ----------- CharacterPage -----------*/
+/* ----------- CharacterPage & ComicPage -----------*/
 
 .containerCharacter {
   padding-left: 10vw;
@@ -139,11 +146,27 @@ header > img {
   justify-content: center;
   gap: 5px;
 }
+.containerCharacter button {
+  border: 1px solid white;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #4d0b1594;
+  color: white;
+  padding: 5px;
+  transition-duration: 0.5s;
+}
 
+.containerCharacter button:hover {
+  background-color: black;
+}
 .containerComicsXS {
+  gap: 10px;
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 430px;
+  overflow-y: scroll;
 }
 
 /* ---------------- MODALS (LOGIN & SUBSCRIPTION) ----------------*/
@@ -243,6 +266,30 @@ input {
   height: 120px;
 }
 
+.logout {
+  margin-top: 20px;
+  border: 1px solid white;
+  width: 200px;
+  border-radius: 10px;
+  background-color: #4d0b1594;
+  color: white;
+  padding: 5px;
+  transition-duration: 0.5s;
+}
+
+.logout:hover {
+  background-color: black;
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.profil h2 {
+  background-color: rgb(21, 21, 21);
+}
+
 /* ---------------- MENU COMPONENT (MODAL)  ----------------*/
 .menu {
   height: 100vh;
@@ -284,7 +331,8 @@ input {
 
 /* ---------------- MEDIA QUERIES ----------------*/
 @media (min-width: 600px) {
-  .invisibleLarge {
+  .invisibleLarge,
+  .swip {
     display: none;
   }
 }
@@ -305,5 +353,15 @@ input {
   }
   .pageCount {
     padding-top: 20px;
+  }
+  .pageCount > div:nth-child(2),
+  .pageCount > div:nth-child(4) {
+    display: none;
+  }
+  body {
+    font-size: 12px;
+  }
+  .mainContainer {
+    padding-left: 25px;
   }
 }

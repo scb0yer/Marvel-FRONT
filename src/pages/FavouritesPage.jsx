@@ -5,9 +5,11 @@ import { useNavigate, Link } from "react-router-dom";
 
 export default function FavouritesPage(props) {
   const navigate = useNavigate();
+
+  // collect the data of the user, if he's logged
   const [user, setUser] = useState(null);
 
-  // get the datas
+  // when token is modified (because it's required), request is lauched to get the datas of the user
   useEffect(() => {
     const getUserData = async () => {
       try {
@@ -26,8 +28,8 @@ export default function FavouritesPage(props) {
     };
     getUserData();
   }, [props.token]);
-  console.log(user);
 
+  // when the user click on the button, it lauches that request to delete the comic or the character from the favourites
   const deleteFavourite = async (element, id) => {
     try {
       const { data } = await axios.post(
@@ -46,7 +48,7 @@ export default function FavouritesPage(props) {
     }
   };
 
-  // displays the infos of the user only if he logged.
+  // displays the infos of the user only if he's logged.
   return user ? (
     <section className="profil">
       <div>
@@ -119,8 +121,9 @@ export default function FavouritesPage(props) {
           </div>
         </div>
         <div>
-          <div>
+          <div className="right">
             <button
+              className="logout"
               onClick={() => {
                 props.setToken(null);
                 navigate("/");
@@ -133,6 +136,7 @@ export default function FavouritesPage(props) {
       </div>
     </section>
   ) : (
+    // If the user is not logged...
     <section className="notLogged">
       <div>Vous devez vous identifier pour accéder à cette page.</div>
       <div>

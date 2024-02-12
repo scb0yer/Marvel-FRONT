@@ -5,10 +5,13 @@ import axios from "axios";
 
 export default function ComicPage(props) {
   const [isLoading, setIsLoading] = useState(true);
+  // data collected by the request
   const [data, setData] = useState();
+  // picture saved with concatenation of path, extension and option
   const [picture_url, setPicture_url] = useState();
   const { id } = useParams();
 
+  // request to find the comic data by Id, launched by loadind the page
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -27,6 +30,7 @@ export default function ComicPage(props) {
     fetchData();
   }, []);
 
+  // request to add the comic in favourites (on Mongo database), launched by clicking on button
   const addToFavourite = async () => {
     try {
       const response = await axios.post(
