@@ -1,6 +1,6 @@
 [build]
-   command = "next build"
-  publish = "out"
+command = "npm run build"   # or "yarn build"
+  publish = "dist"
 
 
 [build.environment]
