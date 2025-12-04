@@ -4,7 +4,7 @@ command = "npm run build"   # or "yarn build"
 
 
 [build.environment]
-  NODE_VERSION = "18.17.0"  # ou la version de Node.js que vous utilisez
+  NODE_VERSION = "20.9.0"  # ou la version de Node.js que vous utilisez
   NETLIFY_BUILD_IMAGE = "ubuntu-noble-24.04"
 
 [[redirects]]
