@@ -11,7 +11,26 @@ a {
   transition-duration: 0.5s;
 }
 a:hover {
-  opacity: 0.4;
+  opacity: 1;
+  -webkit-animation: flash 1s;
+  animation: flash 0.5s;
+}
+
+@-webkit-keyframes flash {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flash {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 h2 {
   padding-top: 15px;

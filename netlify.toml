@@ -1,0 +1,13 @@
+[build]
+   command = "next build"
+  publish = "out"
+  environment = { NETLIFY_BUILD_IMAGE = "ubuntu-noble-24.04" }
+
+
+[build.environment]
+  NODE_VERSION = "18.17.0"  # ou la version de Node.js que vous utilisez
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
